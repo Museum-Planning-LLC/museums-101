@@ -1,0 +1,175 @@
+/* Museum Planner — shared site navigation (all pages) */
+:root {
+  --mp-nav-ink: #141210;
+  --mp-nav-cream: #f5f0e8;
+  --mp-nav-cream-mute: #b8b0a2;
+  --mp-nav-copper: #b5763a;
+  --mp-nav-rule: rgba(245, 240, 232, 0.12);
+  --mp-nav-rule-warm: rgba(181, 118, 58, 0.25);
+}
+
+.mp-masthead {
+  border-bottom: 1px solid var(--mp-nav-rule);
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(20, 18, 16, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.mp-masthead-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--mp-nav-cream);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.mp-masthead-logo span {
+  color: var(--mp-nav-copper);
+}
+
+.mp-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--mp-nav-rule-warm);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mp-nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--mp-nav-cream);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mp-nav-open .mp-nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mp-nav-open .mp-nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mp-nav-open .mp-nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mp-masthead-menu {
+  display: block;
+}
+
+.mp-masthead-nav {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.mp-masthead-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mp-nav-cream-mute);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mp-masthead-nav a:hover {
+  color: var(--mp-nav-cream);
+}
+
+.mp-masthead-nav .mp-nav-cta {
+  color: var(--mp-nav-copper);
+  border: 1px solid var(--mp-nav-rule-warm);
+  padding: 6px 16px;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mp-masthead-nav .mp-nav-cta:hover {
+  background: var(--mp-nav-copper);
+  color: var(--mp-nav-ink);
+}
+
+@media (max-width: 768px) {
+  .mp-masthead {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .mp-nav-toggle {
+    display: flex;
+  }
+
+  .mp-masthead-menu {
+    display: none;
+    width: 100%;
+    order: 3;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid var(--mp-nav-rule);
+  }
+
+  .mp-nav-open .mp-masthead-menu {
+    display: block;
+  }
+
+  .mp-masthead-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .mp-masthead-nav li {
+    border-bottom: 1px solid var(--mp-nav-rule);
+  }
+
+  .mp-masthead-nav li:last-child {
+    border-bottom: none;
+    padding-top: 8px;
+  }
+
+  .mp-masthead-nav a {
+    display: block;
+    padding: 14px 4px;
+    font-size: 12px;
+  }
+
+  .mp-masthead-nav .mp-nav-cta {
+    text-align: center;
+    padding: 12px 16px;
+  }
+}
+
+@media print {
+  .mp-masthead {
+    position: static;
+  }
+
+  .mp-nav-toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Museum Toolbox — Museums 101 | Mark Walhimer</title>
+<meta name="description" content="Free museum planning templates, worksheets, checklists, and frameworks for museum founders, directors, boards, and staff. From Museums 101 by Mark Walhimer.">
+<meta name="keywords" content="museum planning, museum feasibility studies, museum master planning, museum strategic planning, museum toolbox, museum templates, starting a museum, museum governance, museum board members, interpretive planning, Mark Walhimer">
+<meta property="og:title" content="The Museum Toolbox — Museums 101">
+<meta property="og:description" content="Free museum planning templates, worksheets, and frameworks organized across the full arc of museum development — feasibility through opening day.">
+<meta property="og:url" content="https://museums101.com/museum-toolbox/">
+<link rel="canonical" href="https://museums101.com/museum-toolbox/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site-nav.css">
+<style>
+:root {
+  --navy:       #0D1117;
+  --navy-2:     #141B26;
+  --navy-card:  #19212E;
+  --border:     rgba(255,255,255,0.07);
+  --copper:     #C9A84C;
+  --copper-lt:  #DFC27A;
+  --copper-bg:  rgba(201,168,76,0.10);
+  --rust:       #C0391B;
+  --white:      #F5F1E8;
+  --dim:        rgba(245,241,232,0.55);
+  --muted:      rgba(245,241,232,0.28);
+  --serif:      'Playfair Display', Georgia, serif;
+  --mono:       'DM Mono', monospace;
+  --sans:       'DM Sans', system-ui, sans-serif;
+  /* phase accent colors */
+  --p1: #4A90D9;
+  --p2: #7B6ECC;
+  --p3: #3DAA7A;
+  --p4: #C9A84C;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 56px;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-circle {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 11px; font-weight: 700;
+  color: #fff;
+}
+.nav-site-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+.nav-site-name strong { color: var(--copper); font-weight: 500; }
+.nav-links {
+  display: flex; gap: 0; list-style: none;
+}
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 14px;
+  height: 56px;
+  display: flex; align-items: center;
+  border-right: 0.5px solid var(--border);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-links a:first-child { border-left: 0.5px solid var(--border); }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+.nav-links a.active { color: var(--copper); }
+
+/* ── HERO ── */
+.hero {
+  padding: 72px 40px 56px;
+  border-bottom: 0.5px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hero-bg-glow {
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.breadcrumb a { color: var(--copper); }
+.breadcrumb span { color: var(--muted); }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 84px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero h1 em { color: var(--copper); font-style: italic; }
+.hero-rule { width: 60px; height: 2px; background: var(--copper); opacity: 0.6; margin-bottom: 24px; }
+.hero-deck {
+  font-family: var(--serif);
+  font-size: clamp(16px, 2vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--dim);
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+.hero-meta {
+  display: flex; gap: 32px; flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex; flex-direction: column; gap: 3px;
+}
+.hero-meta-lbl {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-meta-val {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--dim);
+}
+.hero-meta-val.hi { color: var(--copper); }
+
+/* ── INTRO BAND ── */
+.intro-band {
+  background: var(--navy-2);
+  border-bottom: 0.5px solid var(--border);
+}
+.intro-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.intro-panel {
+  background: var(--navy-2);
+  padding: 24px 28px;
+}
+.intro-panel-num {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 8px;
+}
+.intro-panel-title {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 700;
+  color: var(--white); margin-bottom: 8px;
+}
+.intro-panel p {
+  font-size: 13px; font-weight: 300;
+  color: var(--dim); line-height: 1.65;
+}
+
+/* ── SECTION SHARED ── */
+.section-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 40px;
+}
+.section-wrap + .section-wrap {
+  padding-top: 0;
+}
+.section-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.section-label-group {}
+.phase-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.phase-eyebrow .phase-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  font-size: 9px; font-weight: 500;
+  font-family: var(--mono);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.section-title em { font-style: italic; }
+.section-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--dim); line-height: 1.7;
+  max-width: 340px;
+  text-align: right;
+}
+
+/* ── PHASE COLORS ── */
+.p1 .phase-eyebrow { color: var(--p1); }
+.p1 .phase-num { background: rgba(74,144,217,0.15); color: var(--p1); }
+.p1 .section-title em { color: var(--p1); }
+.p2 .phase-eyebrow { color: var(--p2); }
+.p2 .phase-num { background: rgba(123,110,204,0.15); color: var(--p2); }
+.p2 .section-title em { color: var(--p2); }
+.p3 .phase-eyebrow { color: var(--p3); }
+.p3 .phase-num { background: rgba(61,170,122,0.15); color: var(--p3); }
+.p3 .section-title em { color: var(--p3); }
+.p4 .phase-eyebrow { color: var(--p4); }
+.p4 .phase-num { background: rgba(201,168,76,0.15); color: var(--p4); }
+.p4 .section-title em { color: var(--p4); }
+
+/* ── TOOL GRID ── */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.tool-card {
+  background: var(--navy-card);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.18s;
+  cursor: default;
+  position: relative;
+}
+.tool-card:hover { background: rgba(255,255,255,0.025); }
+.tool-card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.p1 .tool-card-accent { background: var(--p1); opacity: 0.5; }
+.p2 .tool-card-accent { background: var(--p2); opacity: 0.5; }
+.p3 .tool-card-accent { background: var(--p3); opacity: 0.5; }
+.p4 .tool-card-accent { background: var(--p4); opacity: 0.5; }
+
+.tool-type-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+.badge-template { background: rgba(74,144,217,0.12); color: var(--p1); border: 0.5px solid rgba(74,144,217,0.25); }
+.badge-checklist { background: rgba(61,170,122,0.12); color: var(--p3); border: 0.5px solid rgba(61,170,122,0.25); }
+.badge-worksheet { background: rgba(123,110,204,0.12); color: var(--p2); border: 0.5px solid rgba(123,110,204,0.25); }
+.badge-framework { background: rgba(201,168,76,0.12); color: var(--copper); border: 0.5px solid rgba(201,168,76,0.25); }
+.badge-calculator { background: rgba(192,57,27,0.12); color: #e07050; border: 0.5px solid rgba(192,57,27,0.25); }
+.badge-guide { background: rgba(255,255,255,0.06); color: var(--dim); border: 0.5px solid var(--border); }
+
+.tool-name {
+  font-family: var(--serif);
+  font-size: 17px; font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+.tool-desc {
+  font-size: 12px; font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+}
+.tool-items {
+  display: flex; flex-direction: column; gap: 3px;
+  margin-top: 4px;
+}
+.tool-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(245,241,232,0.35);
+  display: flex; align-items: flex-start; gap: 6px;
+  line-height: 1.4;
+}
+.tool-item::before {
+  content: '—';
+  color: rgba(201,168,76,0.3);
+  flex-shrink: 0;
+}
+.tool-action {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 2px;
+  align-self: flex-start;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+.action-download {
+  background: rgba(201,168,76,0.12);
+  color: var(--copper);
+  border: 0.5px solid rgba(201,168,76,0.25);
+}
+.action-download:hover { background: rgba(201,168,76,0.22); }
+.action-email {
+  background: rgba(255,255,255,0.05);
+  color: var(--dim);
+  border: 0.5px solid var(--border);
+}
+.action-email:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+.action-coming {
+  background: transparent;
+  color: var(--muted);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  cursor: default;
+}
+
+/* ── PHASE DIVIDER ── */
+.phase-divider {
+  border: none;
+  border-top: 0.5px solid var(--border);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ── MVI SECTION ── */
+.mvi-section {
+  background: var(--navy-2);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+.mvi-inner {
+  max-width: 1080px; margin: 0 auto;
+  padding: 72px 40px;
+}
+.mvi-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: start;
+}
+.mvi-left {}
+.mvi-right {}
+.mvi-score-display {
+  display: flex; align-items: baseline; gap: 6px;
+  margin: 16px 0;
+}
+.mvi-big-num {
+  font-family: var(--serif);
+  font-size: 88px; font-weight: 900;
+  color: var(--copper); line-height: 1;
+}
+.mvi-denom {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 400;
+  color: var(--muted);
+}
+.mvi-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 5px 12px;
+  border: 0.5px solid rgba(255,255,255,0.2);
+  border-radius: 2px;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+.mvi-note {
+  font-size: 12px; font-weight: 300;
+  color: var(--muted); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.mvi-categories-list {
+  display: flex; flex-direction: column; gap: 0;
+  border: 0.5px solid var(--border);
+  border-radius: 3px; overflow: hidden;
+}
+.mvi-cat-row {
+  display: flex; align-items: center;
+  padding: 14px 16px;
+  gap: 12px;
+  background: var(--navy-card);
+  border-bottom: 0.5px solid var(--border);
+  transition: background 0.15s;
+}
+.mvi-cat-row:last-child { border-bottom: none; }
+.mvi-cat-row:hover { background: rgba(255,255,255,0.025); }
+.cat-num {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--copper); opacity: 0.7;
+  min-width: 20px;
+}
+.cat-name {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.05em;
+  color: var(--dim); flex: 1;
+}
+.cat-score {
+  font-family: var(--mono);
+  font-size: 12px; color: var(--copper);
+  font-weight: 500;
+}
+.cat-bar-wrap {
+  width: 80px; height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px; overflow: hidden;
+}
+.cat-bar { height: 100%; background: var(--copper); border-radius: 2px; }
+
+.mvi-right-top {
+  margin-bottom: 28px;
+}
+.mvi-right-top p {
+  font-size: 14px; font-weight: 300;
+  color: var(--dim); line-height: 1.75;
+  margin-bottom: 12px;
+}
+.mvi-grade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: 3px; overflow: hidden;
+  margin-top: 24px;
+}
+.mvi-grade-cell {
+  background: var(--navy-card);
+  padding: 14px 14px;
+}
+.mvi-grade-cell.current { background: rgba(201,168,76,0.08); }
+.gc-range { font-family: var(--mono); font-size: 9px; color: var(--muted); margin-bottom: 3px; }
+.gc-grade { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--copper); line-height: 1; }
+.gc-name { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.btn-copper {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 12px 24px;
+  background: var(--copper);
+  color: var(--navy);
+  border-radius: 2px;
+  transition: background 0.18s, transform 0.15s;
+  margin-top: 20px;
+}
+.btn-copper:hover { background: var(--copper-lt); transform: translateY(-1px); }
+
+/* ── EMAIL GATE ── */
+.gate-section {
+  max-width: 1080px; margin: 0 auto;
+  padding: 72px 40px;
+}
+.gate-box {
+  background: var(--navy-2);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.gate-left {
+  padding: 40px 40px;
+  border-right: 0.5px solid var(--border);
+}
+.gate-left h2 {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 700;
+  color: var(--white); margin-bottom: 12px; line-height: 1.2;
+}
+.gate-left h2 em { color: var(--copper); font-style: italic; }
+.gate-left p {
+  font-size: 13px; font-weight: 300;
+  color: var(--dim); line-height: 1.75;
+  margin-bottom: 8px;
+}
+.gate-includes {
+  margin-top: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.gate-include-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px; color: var(--dim);
+  line-height: 1.4;
+}
+.gate-include-item::before {
+  content: '✓';
+  color: var(--copper);
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.gate-right {
+  padding: 40px 40px;
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 14px;
+}
+.gate-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 4px;
+}
+.gate-field {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.gate-label {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted);
+}
+.gate-input {
+  background: var(--navy-card);
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.18s;
+  width: 100%;
+}
+.gate-input:focus { border-color: rgba(201,168,76,0.5); }
+.gate-input::placeholder { color: var(--muted); }
+.gate-submit {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 12px 24px;
+  background: var(--copper);
+  color: var(--navy);
+  border: none; border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.18s;
+  margin-top: 4px;
+  width: 100%;
+}
+.gate-submit:hover { background: var(--copper-lt); }
+.gate-note {
+  font-family: var(--mono);
+  font-size: 9px; color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── RESOURCES QUICK LINKS ── */
+.resources-band {
+  border-top: 0.5px solid var(--border);
+  background: var(--navy-2);
+}
+.resources-inner {
+  max-width: 1080px; margin: 0 auto;
+  padding: 40px 40px;
+}
+.resources-header {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 16px;
+}
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: 3px; overflow: hidden;
+}
+.resource-link {
+  background: var(--navy-card);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: background 0.15s;
+}
+.resource-link:hover { background: rgba(255,255,255,0.03); }
+.rl-org {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--copper); opacity: 0.7;
+}
+.rl-name {
+  font-size: 12px; font-weight: 400;
+  color: var(--dim); line-height: 1.3;
+}
+.rl-arrow {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--border);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.footer-brand strong { color: var(--copper); font-weight: 400; }
+.footer-links {
+  display: flex; gap: 20px; list-style: none; flex-wrap: wrap;
+}
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--copper); }
+.footer-social {
+  display: flex; gap: 12px;
+}
+.footer-social a {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.footer-social a:hover { color: var(--white); }
+.footer-copy {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.15);
+  padding-top: 12px;
+  border-top: 0.5px solid var(--border);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 800px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 48px 20px 40px; }
+  .section-wrap { padding: 48px 20px; }
+  .intro-inner { grid-template-columns: 1fr; padding: 0; gap: 0; }
+  .intro-panel { border-bottom: 0.5px solid var(--border); }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .section-desc { text-align: left; max-width: 100%; }
+  .mvi-inner { padding: 48px 20px; }
+  .mvi-layout { grid-template-columns: 1fr; gap: 36px; }
+  .gate-box { grid-template-columns: 1fr; }
+  .gate-left { border-right: none; border-bottom: 0.5px solid var(--border); }
+  .gate-section { padding: 48px 20px; }
+  .resources-inner { padding: 32px 20px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
+
+/* Museum Planner site strip */
+.mp-top-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 40px;
+  font-family: var(--mono, 'DM Mono', monospace);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid var(--border, rgba(255,255,255,0.07));
+  background: rgba(0,0,0,0.15);
+}
+.mp-top-strip a { color: var(--copper, #C9A84C); text-decoration: none; }
+.mp-top-strip a:hover { opacity: 1; color: var(--white, #F5F1E8); }
+.mp-top-strip .mp-muted { color: var(--muted, rgba(245,241,232,0.35)); }
+
+</style>
+</head>
+<body>
+<header class="mp-masthead">
+  <a href="/" class="mp-masthead-logo">Museums<span>101</span></a>
+  <button type="button" class="mp-nav-toggle" aria-expanded="false" aria-controls="mp-site-nav" aria-label="Open menu">
+    <span class="mp-nav-toggle-bar" aria-hidden="true"></span>
+    <span class="mp-nav-toggle-bar" aria-hidden="true"></span>
+    <span class="mp-nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <nav id="mp-site-nav" class="mp-masthead-menu">
+    <ul class="mp-masthead-nav">
+      <li><a href="/#editions">Editions</a></li>
+      <li><a href="/#contents">Contents</a></li>
+      <li><a href="/#resources">Resources</a></li>
+      <li><a href="https://museumplanner.org">Museum Planner</a></li>
+      <li><a href="https://museumplanning.com" class="mp-nav-cta" target="_blank" rel="noopener">Hire Mark →</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="breadcrumb">
+    <a href="/">Museums 101</a>
+    <span>›</span>
+    <span>Museum Toolbox</span>
+  </div>
+  <h1>The Museum<br><em>Toolbox</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-deck">Planning templates, worksheets, checklists, and frameworks across the full arc of museum development — feasibility through opening day.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-lbl">Companion to</div>
+      <div class="hero-meta-val">Museums 101, 2nd Ed.</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-lbl">Planning Phases</div>
+      <div class="hero-meta-val hi">4</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-lbl">Tools & Templates</div>
+      <div class="hero-meta-val hi">20+</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-lbl">Publisher</div>
+      <div class="hero-meta-val">Museum Planning LLC</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INTRO ═══ -->
+<div class="intro-band">
+  <div class="intro-inner">
+    <div class="intro-panel">
+      <div class="intro-panel-num">How to Use</div>
+      <div class="intro-panel-title">Four Phases. One Continuum.</div>
+      <p>The toolbox is organized to follow the actual sequence of museum development. Start with Phase 01 — Institutional Planning — before a single line is drawn. Bad feasibility is still fatal.</p>
+    </div>
+    <div class="intro-panel">
+      <div class="intro-panel-num">Who It's For</div>
+      <div class="intro-panel-title">Founders. Directors. Boards. Staff.</div>
+      <p>Whether you are planning a new institution, evaluating an existing one, or preparing a capital campaign, the tools on this page give you the language and structure to move forward.</p>
+    </div>
+    <div class="intro-panel">
+      <div class="intro-panel-num">About</div>
+      <div class="intro-panel-title">Mark Walhimer · Museums 101</div>
+      <p>Mark Walhimer is the author of Museums 101 (2015) and Designing Museum Experiences (2021), both published by AAM Press. He has planned 40+ museums across the United States and internationally.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PHASE 01 ═══ -->
+<div class="section-wrap p1" id="phase01">
+  <div class="section-header">
+    <div class="section-label-group">
+      <div class="phase-eyebrow">
+        <span class="phase-num">1</span>
+        Phase 01 · Institutional Planning
+      </div>
+      <h2 class="section-title">Community Assessment · Mission &amp; Vision<br><em>Feasibility · Strategic Plan</em></h2>
+    </div>
+    <div class="section-desc">Before a single line is drawn, the museum needs a clear strategic foundation — why it exists, who it serves, and whether it can operate sustainably.</div>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-template">Template</div>
+      <div class="tool-name">Community Assessment</div>
+      <div class="tool-desc">Framework for evaluating the community context before committing to a museum concept. Includes demographic analysis, competitive landscape, and demand indicators.</div>
+      <div class="tool-items">
+        <div class="tool-item">Census data collection checklist</div>
+        <div class="tool-item">Cultural competitor mapping</div>
+        <div class="tool-item">Community stakeholder interview guide</div>
+        <div class="tool-item">Catchment area analysis framework</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Community Assessment Template" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-worksheet">Worksheet</div>
+      <div class="tool-name">Mission / Vision / Values</div>
+      <div class="tool-desc">Structured worksheet for developing and stress-testing institutional mission, vision, and values statements. Includes examples from comparable institutions.</div>
+      <div class="tool-items">
+        <div class="tool-item">Mission statement development matrix</div>
+        <div class="tool-item">Vision and values alignment check</div>
+        <div class="tool-item">Board consensus-building exercise</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Mission Vision Values Worksheet" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-checklist">Checklist</div>
+      <div class="tool-name">Feasibility Study Checklist</div>
+      <div class="tool-desc">The essential pre-capital checklist. Attendance projections, operating cost modeling, staffing requirements, revenue assumptions, and key go/no-go criteria.</div>
+      <div class="tool-items">
+        <div class="tool-item">Attendance projection methodology</div>
+        <div class="tool-item">Revenue assumption framework</div>
+        <div class="tool-item">Operating cost pre-model</div>
+        <div class="tool-item">Go / no-go decision criteria</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Feasibility Checklist" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-framework">Framework</div>
+      <div class="tool-name">Strategic Plan Framework</div>
+      <div class="tool-desc">Multi-year strategic planning framework covering institutional goals, KPIs, resource allocation, timeline, and board accountability structures.</div>
+      <div class="tool-items">
+        <div class="tool-item">3-year goals and objective matrix</div>
+        <div class="tool-item">KPI definition and tracking template</div>
+        <div class="tool-item">Annual plan / budget alignment</div>
+        <div class="tool-item">Board reporting dashboard outline</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Strategic Plan Framework" class="tool-action action-email">Request Template →</a>
+    </div>
+
+  </div>
+</div>
+
+<hr class="phase-divider">
+
+<!-- ═══ PHASE 02 ═══ -->
+<div class="section-wrap p2" id="phase02">
+  <div class="section-header">
+    <div class="section-label-group">
+      <div class="phase-eyebrow">
+        <span class="phase-num">2</span>
+        Phase 02 · Facility Planning
+      </div>
+      <h2 class="section-title">Master Plan · Capital Campaign<br><em>Visitor Experience · Exhibition Design</em></h2>
+    </div>
+    <div class="section-desc">Translates institutional goals into physical space and financial reality. Structures the capital campaign required to fund the building and its exhibitions.</div>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-template">Template</div>
+      <div class="tool-name">Museum Master Plan Outline</div>
+      <div class="tool-desc">Standard outline for a museum master plan document including building program, adjacency diagrams, phasing strategy, and budget structures.</div>
+      <div class="tool-items">
+        <div class="tool-item">Building program template (NSF/GSF)</div>
+        <div class="tool-item">Space adjacency matrix</div>
+        <div class="tool-item">Phasing and sequencing framework</div>
+        <div class="tool-item">Budget structure and contingency guide</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Master Plan Outline" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-framework">Framework</div>
+      <div class="tool-name">Capital Campaign Structure</div>
+      <div class="tool-desc">Framework for structuring a capital campaign including case statement components, gift range chart, donor prospect categories, and campaign phases.</div>
+      <div class="tool-items">
+        <div class="tool-item">Case statement outline</div>
+        <div class="tool-item">Gift range chart generator</div>
+        <div class="tool-item">Campaign phase timeline</div>
+        <div class="tool-item">Donor prospect research framework</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Capital Campaign Framework" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-worksheet">Worksheet</div>
+      <div class="tool-name">Visitor Experience Plan</div>
+      <div class="tool-desc">Framework for documenting the intended visitor journey — from arrival through exit — including wayfinding, pacing, engagement moments, and accessibility requirements.</div>
+      <div class="tool-items">
+        <div class="tool-item">Visitor journey map template</div>
+        <div class="tool-item">Interpretive framework outline</div>
+        <div class="tool-item">Accessibility audit checklist</div>
+        <div class="tool-item">Visitor flow diagram guide</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Visitor Experience Plan" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-template">Template</div>
+      <div class="tool-name">Exhibition Design Brief</div>
+      <div class="tool-desc">Standard template for an exhibition design brief covering concept, content, space, sequence, interpretive approach, and fabrication-ready documentation requirements.</div>
+      <div class="tool-items">
+        <div class="tool-item">Concept narrative structure</div>
+        <div class="tool-item">Content outline template</div>
+        <div class="tool-item">Space and sequence diagram</div>
+        <div class="tool-item">Fabrication scope checklist</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Exhibition Design Brief" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-checklist">Checklist</div>
+      <div class="tool-name">Architectural Program Checklist</div>
+      <div class="tool-desc">Pre-design checklist for museum spaces: gallery environment requirements, HVAC and climate control standards, loading dock dimensions, security, and collection storage.</div>
+      <div class="tool-items">
+        <div class="tool-item">Gallery environment standards</div>
+        <div class="tool-item">Collection storage requirements</div>
+        <div class="tool-item">Security and access control specs</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Architectural Program Checklist" class="tool-action action-email">Request Template →</a>
+    </div>
+
+  </div>
+</div>
+
+<hr class="phase-divider">
+
+<!-- ═══ PHASE 03 ═══ -->
+<div class="section-wrap p3" id="phase03">
+  <div class="section-header">
+    <div class="section-label-group">
+      <div class="phase-eyebrow">
+        <span class="phase-num">3</span>
+        Phase 03 · Operational Planning
+      </div>
+      <h2 class="section-title">Business Plan · Programming<br><em>Marketing · Emergency Preparedness</em></h2>
+    </div>
+    <div class="section-desc">Builds the systems that keep a museum running financially, programmatically, and physically. Personnel accounts for 60% of annual budget — rigorous modeling is not optional.</div>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-calculator">Calculator</div>
+      <div class="tool-name">Business Plan &amp; Pro Forma</div>
+      <div class="tool-desc">Five-year operating pro forma model with revenue assumptions (admissions, membership, earned income, contributed income) and staffing cost modeling.</div>
+      <div class="tool-items">
+        <div class="tool-item">Revenue model by line item</div>
+        <div class="tool-item">Staffing plan and salary template</div>
+        <div class="tool-item">5-year projection worksheet</div>
+        <div class="tool-item">Revenue-to-expense ratio benchmarks</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Business Plan Pro Forma" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-template">Template</div>
+      <div class="tool-name">Collections Policy Template</div>
+      <div class="tool-desc">Standard collections management policy document covering acquisition criteria, deaccessioning procedures, loans, care and handling, access, and inventory requirements.</div>
+      <div class="tool-items">
+        <div class="tool-item">Acquisition and deaccession criteria</div>
+        <div class="tool-item">Loan agreement framework</div>
+        <div class="tool-item">Care and handling standards</div>
+        <div class="tool-item">Collections inventory checklist</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Collections Policy Template" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-worksheet">Worksheet</div>
+      <div class="tool-name">Programming Plan</div>
+      <div class="tool-desc">Framework for developing a museum programming calendar including school programs, public programs, special events, membership, and community partnerships.</div>
+      <div class="tool-items">
+        <div class="tool-item">Annual programming calendar template</div>
+        <div class="tool-item">School program scope and sequence</div>
+        <div class="tool-item">Revenue-to-cost analysis per program</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Programming Plan Template" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-framework">Framework</div>
+      <div class="tool-name">Marketing Plan Framework</div>
+      <div class="tool-desc">Audience segmentation, channel strategy, social media framework, earned media approach, and digital presence benchmarks normalized by institutional budget.</div>
+      <div class="tool-items">
+        <div class="tool-item">Audience segmentation matrix</div>
+        <div class="tool-item">Digital channel strategy worksheet</div>
+        <div class="tool-item">Social media benchmark table</div>
+        <div class="tool-item">Instagram follower / budget ratio</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Marketing Plan Framework" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-checklist">Checklist</div>
+      <div class="tool-name">Emergency Response Plan</div>
+      <div class="tool-desc">Collections emergency response plan framework covering fire, flood, theft, and structural damage — with priority salvage lists, staff notification trees, and recovery contacts.</div>
+      <div class="tool-items">
+        <div class="tool-item">Priority salvage list template</div>
+        <div class="tool-item">Staff notification tree</div>
+        <div class="tool-item">Emergency contacts and protocols</div>
+        <div class="tool-item">Annual drill and review checklist</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Emergency Response Plan" class="tool-action action-email">Request Template →</a>
+    </div>
+
+  </div>
+</div>
+
+<hr class="phase-divider">
+
+<!-- ═══ PHASE 04 ═══ -->
+<div class="section-wrap p4" id="phase04">
+  <div class="section-header">
+    <div class="section-label-group">
+      <div class="phase-eyebrow">
+        <span class="phase-num">4</span>
+        Phase 04 · Opening &amp; Operations
+      </div>
+      <h2 class="section-title">Grand Opening · Impact Assessment<br><em>Evaluation · Institutional Review</em></h2>
+    </div>
+    <div class="section-desc">A successful opening is planned, not improvised. Post-opening assessment closes the loop and initiates the next strategic planning cycle.</div>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-checklist">Checklist</div>
+      <div class="tool-name">Opening Day Plan</div>
+      <div class="tool-desc">Pre-opening punch list and soft opening / grand opening sequencing guide — from staff training completion through press preview, member preview, and public opening.</div>
+      <div class="tool-items">
+        <div class="tool-item">Soft opening readiness checklist</div>
+        <div class="tool-item">Staff readiness and training log</div>
+        <div class="tool-item">Opening day communications plan</div>
+        <div class="tool-item">First 90 days operations calendar</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Opening Day Plan" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-worksheet">Worksheet</div>
+      <div class="tool-name">Community Impact Assessment</div>
+      <div class="tool-desc">Post-opening framework for measuring community impact including visitor origin data, economic impact modeling, school program reach, and community survey instruments.</div>
+      <div class="tool-items">
+        <div class="tool-item">Visitor origin survey template</div>
+        <div class="tool-item">Economic impact calculation guide</div>
+        <div class="tool-item">Community engagement metrics</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Community Impact Assessment" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-framework">Framework</div>
+      <div class="tool-name">Exhibition Evaluation</div>
+      <div class="tool-desc">Front-end, formative, and summative evaluation framework. Includes visitor observation protocols, satisfaction survey instruments, and interpretive effectiveness measures.</div>
+      <div class="tool-items">
+        <div class="tool-item">Visitor observation protocol</div>
+        <div class="tool-item">Satisfaction survey template</div>
+        <div class="tool-item">Learning outcome assessment</div>
+        <div class="tool-item">Hold rate and dwell time tracking</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Exhibition Evaluation Framework" class="tool-action action-email">Request Template →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-accent"></div>
+      <div class="tool-type-badge badge-framework">Framework</div>
+      <div class="tool-name">Board Governance Self-Assessment</div>
+      <div class="tool-desc">Annual board self-assessment instrument covering fiduciary responsibilities, strategic engagement, executive director relationship, development participation, and committee structure.</div>
+      <div class="tool-items">
+        <div class="tool-item">Board member self-assessment survey</div>
+        <div class="tool-item">Governance policy checklist</div>
+        <div class="tool-item">ED performance review framework</div>
+      </div>
+      <a href="mailto:mark@museumplanning.com?subject=Museum Toolbox: Board Governance Assessment" class="tool-action action-email">Request Template →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ MVI SECTION ═══ -->
+<div class="mvi-section" id="mvi">
+  <div class="mvi-inner">
+    <div class="mvi-layout">
+      <div class="mvi-left">
+        <div class="phase-eyebrow" style="color:var(--copper);">
+          <span class="phase-num" style="background:var(--copper-bg);color:var(--copper);">★</span>
+          Featured Tool
+        </div>
+        <h2 class="section-title" style="font-family:var(--serif);">Museum Vitality<br><em style="color:var(--copper);">Index</em></h2>
+        <div class="mvi-score-display">
+          <div class="mvi-big-num">79</div>
+          <div class="mvi-denom">/100</div>
+        </div>
+        <div class="mvi-badge">B+ · Strong — Connecticut River Museum, FY2024</div>
+        <div class="mvi-note">The MVI is a proprietary 0–100 composite scoring framework that benchmarks museums of every size using size-normalized metrics. A $500K museum can score 85+ and outrank a $25M institution — if it's operating well.</div>
+        <div class="mvi-categories-list">
+          <div class="mvi-cat-row">
+            <span class="cat-num">01</span>
+            <span class="cat-name">Visitor Experience</span>
+            <div class="cat-bar-wrap"><div class="cat-bar" style="width:80%"></div></div>
+            <span class="cat-score">16/20</span>
+          </div>
+          <div class="mvi-cat-row">
+            <span class="cat-num">02</span>
+            <span class="cat-name">Digital Presence</span>
+            <div class="cat-bar-wrap"><div class="cat-bar" style="width:85%"></div></div>
+            <span class="cat-score">17/20</span>
+          </div>
+          <div class="mvi-cat-row">
+            <span class="cat-num">03</span>
+            <span class="cat-name">Financial Health</span>
+            <div class="cat-bar-wrap"><div class="cat-bar" style="width:75%"></div></div>
+            <span class="cat-score">15/20</span>
+          </div>
+          <div class="mvi-cat-row">
+            <span class="cat-num">04</span>
+            <span class="cat-name">Community Impact</span>
+            <div class="cat-bar-wrap"><div class="cat-bar" style="width:80%"></div></div>
+            <span class="cat-score">16/20</span>
+          </div>
+          <div class="mvi-cat-row">
+            <span class="cat-num">05</span>
+            <span class="cat-name">Institutional Strength</span>
+            <div class="cat-bar-wrap"><div class="cat-bar" style="width:75%"></div></div>
+            <span class="cat-score">15/20</span>
+          </div>
+        </div>
+      </div>
+      <div class="mvi-right">
+        <div class="mvi-right-top">
+          <div class="phase-eyebrow" style="color:var(--copper);margin-bottom:12px;">How the MVI Works</div>
+          <p>Every metric is expressed as a ratio or rate — never a raw number. Five years of IRS Form 990 filings, TripAdvisor and Google review data, Instagram followers normalized by operating budget, U.S. Census catchment demographics, and institutional history.</p>
+          <p>The use of public 990 data is deliberate. An analyst who knows how to read a 990 can reconstruct an institution's revenue mix, expense structure, surplus history, and implied endowment size — without a single phone call to the museum.</p>
+          <p>Every report includes a data confidence table — what was obtained, what remains partial, what requires direct outreach. Transparency about data quality is built into the system.</p>
+        </div>
+        <div class="mvi-grade-grid">
+          <div class="mvi-grade-cell">
+            <div class="gc-range">90–100</div>
+            <div class="gc-grade">A+</div>
+            <div class="gc-name">World Class</div>
+          </div>
+          <div class="mvi-grade-cell">
+            <div class="gc-range">80–89</div>
+            <div class="gc-grade">A</div>
+            <div class="gc-name">Exceptional</div>
+          </div>
+          <div class="mvi-grade-cell current">
+            <div class="gc-range">70–79</div>
+            <div class="gc-grade">B+</div>
+            <div class="gc-name">Strong ← CRM</div>
+          </div>
+          <div class="mvi-grade-cell">
+            <div class="gc-range">60–69</div>
+            <div class="gc-grade">B</div>
+            <div class="gc-name">Developing</div>
+          </div>
+          <div class="mvi-grade-cell">
+            <div class="gc-range">50–59</div>
+            <div class="gc-grade">C+</div>
+            <div class="gc-name">Emerging</div>
+          </div>
+          <div class="mvi-grade-cell">
+            <div class="gc-range">Below 50</div>
+            <div class="gc-grade">C–D</div>
+            <div class="gc-name">At Risk</div>
+          </div>
+        </div>
+        <a href="mailto:mark@museumplanning.com?subject=MVI Assessment Request" class="btn-copper">Request an MVI Assessment →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EMAIL GATE / DOWNLOAD ═══ -->
+<div class="gate-section" id="download">
+  <div class="gate-box">
+    <div class="gate-left">
+      <h2>Get the Full<br><em>Toolbox.</em></h2>
+      <p>The complete Museum Toolbox — all 20+ templates, worksheets, and frameworks as editable Word documents — delivered to your inbox.</p>
+      <p>No purchase required. Companion to Museums 101, 2nd Edition (forthcoming).</p>
+      <div class="gate-includes">
+        <div class="gate-include-item">Community Assessment template (.docx)</div>
+        <div class="gate-include-item">Mission / Vision / Values worksheet (.docx)</div>
+        <div class="gate-include-item">Feasibility Study checklist (.docx)</div>
+        <div class="gate-include-item">Business Plan &amp; Pro Forma (.xlsx)</div>
+        <div class="gate-include-item">Collections Policy template (.docx)</div>
+        <div class="gate-include-item">Exhibition Design Brief (.docx)</div>
+        <div class="gate-include-item">Board Governance Self-Assessment (.docx)</div>
+        <div class="gate-include-item">All Phase 01–04 tools listed above</div>
+      </div>
+    </div>
+    <div class="gate-right">
+      <div class="gate-eyebrow">Get the Toolbox — Free</div>
+      <div class="gate-field">
+        <div class="gate-label">First Name</div>
+        <input type="text" class="gate-input" placeholder="First name">
+      </div>
+      <div class="gate-field">
+        <div class="gate-label">Last Name</div>
+        <input type="text" class="gate-input" placeholder="Last name">
+      </div>
+      <div class="gate-field">
+        <div class="gate-label">Email Address</div>
+        <input type="email" class="gate-input" placeholder="you@yourmuseum.org">
+      </div>
+      <div class="gate-field">
+        <div class="gate-label">Institution / Role (optional)</div>
+        <input type="text" class="gate-input" placeholder="Director, Board Member, Student...">
+      </div>
+      <button class="gate-submit" onclick="window.location.href='mailto:mark@museumplanning.com?subject=Museum Toolbox Download Request'">Send Me the Toolbox →</button>
+      <div class="gate-note">Your information will not be shared. You may receive occasional updates about Museums 101, 2nd Edition. Unsubscribe anytime.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ RESOURCES BAND ═══ -->
+<div class="resources-band">
+  <div class="resources-inner">
+    <div class="resources-header">Essential External Resources · Updated 2026</div>
+    <div class="resources-grid">
+      <a href="https://www.aam-us.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">AAM</div>
+        <div class="rl-name">American Alliance of Museums — Standards &amp; Best Practices</div>
+        <div class="rl-arrow">→ aam-us.org</div>
+      </a>
+      <a href="https://icom.museum/en/resources/standards-guidelines/code-of-ethics/" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">ICOM</div>
+        <div class="rl-name">International Council of Museums — Code of Ethics</div>
+        <div class="rl-arrow">→ icom.museum</div>
+      </a>
+      <a href="https://www.imls.gov" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">IMLS</div>
+        <div class="rl-name">Institute of Museum and Library Services — Grants &amp; Resources</div>
+        <div class="rl-arrow">→ imls.gov</div>
+      </a>
+      <a href="https://www.aza.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">AZA</div>
+        <div class="rl-name">Association of Zoos and Aquariums — Accreditation Standards</div>
+        <div class="rl-arrow">→ aza.org</div>
+      </a>
+      <a href="https://www.childrensmuseums.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">ACM</div>
+        <div class="rl-name">Association of Children's Museums — Strategic Resources</div>
+        <div class="rl-arrow">→ childrensmuseums.org</div>
+      </a>
+      <a href="https://www.aaslh.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">AASLH</div>
+        <div class="rl-name">American Association for State and Local History</div>
+        <div class="rl-arrow">→ aaslh.org</div>
+      </a>
+      <a href="https://www.rcaam.org/resources/sample_documents/" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">RC-AAM</div>
+        <div class="rl-name">Registrars Committee — Sample Documents Library</div>
+        <div class="rl-arrow">→ rcaam.org</div>
+      </a>
+      <a href="https://nonprofitexplorer.propublica.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="rl-org">ProPublica</div>
+        <div class="rl-name">Nonprofit Explorer — IRS Form 990 Database</div>
+        <div class="rl-arrow">→ propublica.org</div>
+      </a>
+      <a href="https://museumplanner.org/category/museum-planning/" class="resource-link">
+        <div class="rl-org">Museums 101</div>
+        <div class="rl-name">Glossary of Essential Museum Terms</div>
+        <div class="rl-arrow">→ museumplanner.org</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">Museums101.com · Museum Planning LLC · © 2026</div>
+  <ul class="footer-links">
+    <li><a href="/">Museums 101</a></li>
+    <li><a href="https://museumplanner.org/archive">Writing</a></li>
+    <li><a href="/museum-resources/">Resources</a></li>
+    <li><a href="https://museumplanning.com">Consulting</a></li>
+    <li><a href="https://markwalhimer.com">Art</a></li>
+    <li><a href="mailto:mark@museumplanning.com">Contact</a></li>
+  </ul>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/museums101" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://twitter.com/museums101" target="_blank" rel="noopener">X</a>
+    <a href="https://www.linkedin.com/in/walhimer" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://museumplanning.medium.com" target="_blank" rel="noopener">Medium</a>
+  </div>
+  <div class="footer-copy">© 2026 Museum Planning, LLC · All Rights Reserved · mark@museumplanning.com · 415-794-5252 · New York · Mexico City</div>
+</footer>
+
+<script src="../assets/site-nav.js"></script>
+</body>
+</html>
