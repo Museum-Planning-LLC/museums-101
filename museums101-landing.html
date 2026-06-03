@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Museums 101 — Mark Walhimer</title>
+<meta name="description" content="Museums 101 by Mark Walhimer — the foundational text on what a museum is, how it is governed, and what public trust requires. First edition 2015. Second edition forthcoming.">
+<link rel="canonical" href="https://www.museums101.com/">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white:   #ffffff;
+  --off:     #f8f6f3;
+  --pale:    #f0ece6;
+  --rule:    #ddd8d0;
+  --ink:     #14120f;
+  --mid:     #5a5248;
+  --muted:   #9a9088;
+  --red:     #8c2018;
+  --red-dk:  #6e180f;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'DM Sans', sans-serif;
+  --mono:    'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 56px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--ink); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-ed {
+  font-size: 8.5px; letter-spacing: 1.5px; color: var(--red);
+  border: 1px solid var(--red); padding: 2px 7px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--red); }
+.nav-links .cta {
+  background: var(--red); color: white !important;
+  padding: 7px 18px; transition: background .2s;
+}
+.nav-links .cta:hover { background: var(--red-dk) !important; }
+
+/* ── HERO ── */
+.hero {
+  display: grid; grid-template-columns: 1fr 400px;
+  min-height: 90vh;
+  border-bottom: 2px solid var(--ink);
+}
+
+/* left: text */
+.hero-text {
+  padding: 80px 64px 80px 56px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.edition-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--red);
+  border: 1px solid var(--red); padding: 5px 14px;
+  margin-bottom: 36px;
+  animation: fadeUp .6s .05s both;
+  width: fit-content;
+}
+.edition-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--red); border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; } 50% { opacity: .3; }
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6.5vw, 88px);
+  font-weight: 900; line-height: .97;
+  color: var(--ink); letter-spacing: -2px;
+  margin-bottom: 12px;
+  animation: fadeUp .6s .15s both;
+}
+
+.h1-sub {
+  font-family: var(--serif); font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 400; font-style: italic;
+  color: var(--mid); margin-bottom: 36px;
+  animation: fadeUp .6s .2s both;
+}
+
+.hero-rule {
+  width: 48px; height: 3px; background: var(--red);
+  margin-bottom: 28px;
+  animation: fadeUp .6s .25s both;
+}
+
+.hero-desc {
+  font-size: 16px; color: var(--mid);
+  line-height: 1.8; max-width: 500px;
+  margin-bottom: 40px;
+  animation: fadeUp .6s .3s both;
+}
+
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  animation: fadeUp .6s .35s both;
+}
+.btn-red {
+  display: inline-block; text-decoration: none;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--red); color: white;
+  padding: 13px 28px; transition: background .2s;
+}
+.btn-red:hover { background: var(--red-dk); }
+.btn-outline {
+  display: inline-block; text-decoration: none;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--rule); color: var(--mid);
+  padding: 12px 28px; transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+.pub-strip {
+  margin-top: 40px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: flex; gap: 28px; flex-wrap: wrap;
+  animation: fadeUp .6s .45s both;
+}
+.pub-tag {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--rule); padding: 5px 12px;
+}
+
+/* right: book visual */
+.hero-book {
+  background: var(--off);
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 48px;
+  animation: fadeUp .7s .1s both;
+  position: relative; overflow: hidden;
+}
+.hero-book::before {
+  content: '101';
+  position: absolute;
+  font-family: var(--serif); font-size: 220px; font-weight: 900;
+  color: rgba(140,32,24,.06); line-height: 1;
+  right: -20px; bottom: -20px; letter-spacing: -8px;
+  pointer-events: none;
+}
+
+.book-spine-wrap {
+  display: flex; gap: 0; align-items: flex-end;
+  filter: drop-shadow(-12px 12px 32px rgba(20,18,15,.2));
+}
+
+/* CSS book — 1st edition */
+.book-1 {
+  width: 240px;
+  background: linear-gradient(160deg, #1e2a4a 0%, #14203c 100%);
+  border-left: 6px solid #4a6ab0;
+  padding: 40px 28px 40px 32px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+  transform: perspective(600px) rotateY(4deg);
+}
+.book-1::after {
+  content: '';
+  position: absolute; top: 0; right: 0; bottom: 0; width: 8px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.04));
+}
+.b1-top { }
+.b1-num {
+  font-family: var(--serif); font-size: 68px; font-weight: 900;
+  color: rgba(255,255,255,.12); line-height: 1; letter-spacing: -3px;
+  margin-bottom: 16px;
+}
+.b1-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: rgba(255,255,255,.9); line-height: 1.15;
+}
+.b1-subtitle {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,.35);
+  margin-top: 10px; line-height: 1.6;
+}
+.b1-author {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
+}
+.b1-year {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 1.5px;
+  color: rgba(74,106,176,.8); margin-top: 4px;
+}
+
+/* 2nd edition — angled, partially visible */
+.book-2-wrap {
+  position: relative; margin-left: -30px;
+}
+.book-2 {
+  width: 240px;
+  background: linear-gradient(160deg, #3d1008 0%, #2a0a06 100%);
+  border-left: 6px solid var(--red);
+  padding: 40px 28px 40px 32px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+  transform: perspective(600px) rotateY(-3deg) translateX(10px);
+  box-shadow: -4px 0 24px rgba(140,32,24,.2);
+  z-index: 2;
+}
+.book-2::after {
+  content: '';
+  position: absolute; top: 0; right: 0; bottom: 0; width: 8px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.04));
+}
+.b2-badge {
+  display: inline-block;
+  font-family: var(--mono); font-size: 7.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--red);
+  border: 1px solid rgba(140,32,24,.5); padding: 3px 8px;
+  margin-bottom: 14px; width: fit-content;
+}
+.b2-num {
+  font-family: var(--serif); font-size: 68px; font-weight: 900;
+  color: rgba(255,255,255,.1); line-height: 1; letter-spacing: -3px;
+  margin-bottom: 16px;
+}
+.b2-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: rgba(255,255,255,.9); line-height: 1.15;
+}
+.b2-subtitle {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,.35);
+  margin-top: 10px; line-height: 1.6;
+}
+.b2-author {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
+}
+.b2-coming {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 1.5px;
+  color: var(--red); margin-top: 4px;
+}
+
+/* ── EDITION STRIP ── */
+.edition-strip {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--rule);
+}
+.ed-panel {
+  padding: 48px 56px;
+  border-right: 1px solid var(--rule);
+}
+.ed-panel:last-child { border-right: none; }
+.ed-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.ed-label-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--rule);
+}
+.ed-label-dot.live { background: #2d7a3a; }
+.ed-label-dot.coming { background: var(--red); animation: pulse 2s ease-in-out infinite; }
+
+.ed-title {
+  font-family: var(--serif); font-size: 26px; font-weight: 700;
+  color: var(--ink); line-height: 1.2; margin-bottom: 14px;
+}
+.ed-title em { font-style: italic; font-weight: 400; color: var(--mid); }
+.ed-body { font-size: 14px; color: var(--mid); line-height: 1.75; margin-bottom: 24px; }
+.ed-body p { margin-bottom: .9em; }
+
+/* ── SECTION ── */
+.section { padding: 88px 56px; }
+.section + .section { border-top: 1px solid var(--rule); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-bg { background: var(--off); }
+
+.section-tag {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before { content: ''; width: 20px; height: 1px; background: var(--red); }
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700; color: var(--ink); line-height: 1.12;
+  margin-bottom: 48px; letter-spacing: -.5px;
+}
+h2 em { font-style: italic; font-weight: 400; color: var(--red); }
+
+/* TABLE OF CONTENTS */
+.toc {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 0; background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.toc-item {
+  background: var(--white); padding: 28px 32px;
+  display: flex; gap: 20px; align-items: flex-start;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  transition: background .2s;
+}
+.toc-item:nth-child(even) { border-right: none; }
+.toc-item:nth-last-child(-n+2) { border-bottom: none; }
+.toc-item:hover { background: var(--off); }
+.toc-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+  color: var(--red); min-width: 28px; padding-top: 3px;
+}
+.toc-title {
+  font-family: var(--serif); font-size: 17px; font-weight: 600;
+  color: var(--ink); margin-bottom: 5px; line-height: 1.2;
+}
+.toc-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* MUSEUM TYPES */
+.types-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule); margin-bottom: 0;
+}
+.type-cell {
+  background: var(--white); padding: 24px 24px;
+  text-align: center; transition: background .2s;
+}
+.type-cell:hover { background: var(--off); }
+.type-icon {
+  font-family: var(--serif); font-size: 28px; font-style: italic;
+  color: rgba(140,32,24,.2); line-height: 1; margin-bottom: 10px;
+}
+.type-name {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--mid);
+}
+
+/* SECOND EDITION TEASER */
+.second-ed {
+  background: var(--ink); padding: 88px 56px;
+  border-top: 2px solid var(--red);
+}
+.second-ed-inner { max-width: 1100px; margin: 0 auto; }
+.sed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sed-left { }
+.sed-tag {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--red); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sed-tag::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+.sed-h2 {
+  font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 700; color: rgba(248,246,243,.9);
+  line-height: 1.1; margin-bottom: 24px; letter-spacing: -.5px;
+}
+.sed-h2 em { font-style: italic; color: var(--red); font-weight: 400; }
+.sed-body { font-size: 15px; color: rgba(255,255,255,.45); line-height: 1.8; margin-bottom: 32px; }
+.sed-body p { margin-bottom: 1em; }
+.sed-body strong { color: rgba(255,255,255,.65); font-weight: 500; }
+.btn-red-outline {
+  display: inline-block; text-decoration: none;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(140,32,24,.5); color: var(--red);
+  padding: 12px 28px; transition: all .2s;
+}
+.btn-red-outline:hover { background: var(--red); color: white; border-color: var(--red); }
+
+/* comparison table */
+.ed-compare {
+  border: 1px solid rgba(255,255,255,.08);
+}
+.ec-header {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  background: rgba(255,255,255,.04);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.ec-h {
+  padding: 14px 20px;
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 2px;
+  text-transform: uppercase; border-right: 1px solid rgba(255,255,255,.06);
+}
+.ec-h:first-child { color: rgba(255,255,255,.25); }
+.ec-h.ed1 { color: rgba(255,255,255,.5); }
+.ec-h.ed2 { color: var(--red); }
+.ec-h:last-child { border-right: none; }
+.ec-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.ec-row:last-child { border-bottom: none; }
+.ec-cell {
+  padding: 14px 20px; font-size: 13px;
+  border-right: 1px solid rgba(255,255,255,.05);
+  line-height: 1.4;
+}
+.ec-cell:last-child { border-right: none; }
+.ec-cell.label { color: rgba(255,255,255,.3); font-family: var(--mono); font-size: 10px; letter-spacing: 1px; }
+.ec-cell.ed1 { color: rgba(255,255,255,.55); }
+.ec-cell.ed2 { color: rgba(248,246,243,.75); }
+.ec-check { color: var(--red); font-size: 14px; }
+
+/* RESOURCES */
+.res-two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.res-group h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--ink); margin-bottom: 18px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--rule);
+}
+.res-group h3 em { font-style: italic; font-weight: 400; color: var(--red); }
+.res-list { list-style: none; }
+.res-list li {
+  padding: 12px 0; border-bottom: 1px solid var(--pale);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.res-list a {
+  font-size: 14px; color: var(--mid); text-decoration: none; transition: color .2s;
+}
+.res-list a:hover { color: var(--red); }
+.res-arr { font-family: var(--mono); font-size: 9px; color: var(--red); flex-shrink: 0; }
+
+/* ECOSYSTEM */
+.ecosystem {
+  border-top: 2px solid var(--rule);
+  padding: 64px 56px; background: var(--off);
+}
+.eco-inner { max-width: 1100px; margin: 0 auto; }
+.eco-top {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 36px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eco-top::before { content: ''; width: 20px; height: 1px; background: var(--rule); }
+.eco-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+}
+.eco-card {
+  background: var(--white); padding: 28px 24px;
+  text-decoration: none; display: block; transition: background .2s;
+}
+.eco-card:hover { background: var(--pale); }
+.eco-ct { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+.eco-cn { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 7px; }
+.eco-cd { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* CTA */
+.cta { background: var(--red); padding: 88px 56px; text-align: center; }
+.cta h2 {
+  font-family: var(--serif); font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 700; color: white; line-height: 1.1;
+  margin-bottom: 16px; letter-spacing: -.5px;
+}
+.cta h2 em { font-style: italic; font-weight: 400; }
+.cta p {
+  font-size: 16px; color: rgba(255,255,255,.65);
+  max-width: 500px; margin: 0 auto 36px; line-height: 1.7;
+}
+.btn-white {
+  display: inline-block; text-decoration: none;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 2px;
+  text-transform: uppercase;
+  background: white; color: var(--red);
+  padding: 13px 32px; transition: background .2s;
+}
+.btn-white:hover { background: var(--off); }
+
+/* FOOTER */
+footer {
+  background: var(--ink); padding: 32px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,.25);
+}
+.footer-links { display: flex; gap: 28px; }
+.footer-links a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,.25); text-decoration: none;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--red); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-book { padding: 48px 24px; border-top: 1px solid var(--rule); min-height: 360px; }
+  .hero-text { padding: 60px 24px; }
+  .edition-strip { grid-template-columns: 1fr; }
+  .ed-panel { border-right: none; border-bottom: 1px solid var(--rule); }
+  .toc { grid-template-columns: 1fr; }
+  .toc-item { border-right: none !important; }
+  .toc-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .toc-item:last-child { border-bottom: none; }
+  .types-grid { grid-template-columns: repeat(2, 1fr); }
+  .sed-grid { grid-template-columns: 1fr; gap: 40px; }
+  .res-two { grid-template-columns: 1fr; gap: 40px; }
+  .eco-grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 60px 24px; }
+  .second-ed { padding: 64px 24px; }
+  .ecosystem { padding: 56px 24px; }
+  .cta { padding: 72px 24px; }
+  footer { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  .book-spine-wrap { transform: scale(.85); transform-origin: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    Museums 101
+    <span class="nav-logo-ed">2nd Ed. Forthcoming</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#editions">Editions</a></li>
+    <li><a href="#contents">Contents</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="https://museumplanner.org">Museum Planner</a></li>
+    <li><a href="https://museumplanning.com" class="cta">Hire Mark →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="edition-badge">Second Edition — Forthcoming</div>
+    <h1>Museums<br>101</h1>
+    <p class="h1-sub">What a museum is.<br>How it is governed.<br>What public trust requires.</p>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">The foundational text on museum practice — used by museum founders, board members, staff, students, and anyone who wants to understand what a museum actually is and how it actually works. First edition 2015. Second edition in development.</p>
+    <div class="hero-actions">
+      <a href="https://amzn.to/2TxIDfN" class="btn-red">Buy First Edition →</a>
+      <a href="#editions" class="btn-outline">Second Edition ↓</a>
+      <a href="#resources" class="btn-outline">Free Resources</a>
+    </div>
+    <div class="pub-strip">
+      <span class="pub-tag">Rowman &amp; Littlefield</span>
+      <span class="pub-tag">AAM Press</span>
+      <span class="pub-tag">First Ed. 2015</span>
+      <span class="pub-tag">Mark Walhimer</span>
+    </div>
+  </div>
+
+  <div class="hero-book">
+    <div class="book-spine-wrap">
+      <!-- First Edition -->
+      <div class="book-1">
+        <div class="b1-top">
+          <div class="b1-num">101</div>
+          <div class="b1-title">Museums<br>101</div>
+          <div class="b1-subtitle">What a museum is ·<br>How it is governed</div>
+        </div>
+        <div>
+          <div class="b1-author">Mark Walhimer</div>
+          <div class="b1-year">First Edition · 2015</div>
+        </div>
+      </div>
+      <!-- Second Edition — partially visible behind -->
+      <div class="book-2-wrap">
+        <div class="book-2">
+          <div>
+            <div class="b2-badge">Second Edition</div>
+            <div class="b2-num">101</div>
+            <div class="b2-title">Museums<br>101</div>
+            <div class="b2-subtitle">What a museum is ·<br>What a museum is <em>in</em></div>
+          </div>
+          <div>
+            <div class="b2-author">Mark Walhimer</div>
+            <div class="b2-coming">Forthcoming · 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITIONS -->
+<section class="edition-strip" id="editions">
+  <div class="ed-panel">
+    <div class="ed-label">
+      <span class="ed-label-dot live"></span>
+      First Edition &nbsp;·&nbsp; Available Now
+    </div>
+    <div class="ed-title">What a museum <em>is.</em></div>
+    <div class="ed-body">
+      <p>The foundational text. What a museum is, how it is governed, what nonprofit form and public trust require. Types of museums, governance structures, feasibility, collections, exhibition design, staffing, and finance — the complete primer.</p>
+      <p>Still true about what a museum is. Used by museum founders, board members, staff, students, and anyone building or running a cultural institution.</p>
+    </div>
+    <a href="https://amzn.to/2TxIDfN" class="btn-red">Buy on Amazon →</a>
+  </div>
+  <div class="ed-panel">
+    <div class="ed-label">
+      <span class="ed-label-dot coming"></span>
+      Second Edition &nbsp;·&nbsp; Forthcoming
+    </div>
+    <div class="ed-title">What a museum is <em>in.</em></div>
+    <div class="ed-body">
+      <p>The first edition is still true about what a museum <em>is</em>. The second edition is about what a museum is <em>in</em> — the operating environment that every institution now shares and that planning has to account for.</p>
+      <p>AI, demographics, funding structures, digital audience systems, programming-driven visitation, and the political and social pressures reshaping cultural institutions in 2026 and beyond.</p>
+    </div>
+    <a href="https://museumplanning.com/museum-planning-contact.html" class="btn-outline">Get notified when available →</a>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section class="section" id="contents">
+  <div class="section-inner">
+    <div class="section-tag">What's Inside</div>
+    <h2>The museum field,<br>from <em>first principles.</em></h2>
+
+    <div class="toc">
+      <div class="toc-item">
+        <span class="toc-num">01</span>
+        <div>
+          <div class="toc-title">What Is a Museum?</div>
+          <div class="toc-desc">Definition, public trust, nonprofit form, and the obligations that come with operating in the public interest.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">02</span>
+        <div>
+          <div class="toc-title">Museum Governance</div>
+          <div class="toc-desc">Board structure, bylaws, executive leadership, fiduciary responsibility, and the relationship between governance and management.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">03</span>
+        <div>
+          <div class="toc-title">Feasibility</div>
+          <div class="toc-desc">Before capital is committed — audience assessment, operating cost projections, site evaluation, and mission viability.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">04</span>
+        <div>
+          <div class="toc-title">Collections</div>
+          <div class="toc-desc">Collection policy, accessioning, deaccessioning, provenance, care, and the legal and ethical obligations of stewardship.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">05</span>
+        <div>
+          <div class="toc-title">Exhibition Design</div>
+          <div class="toc-desc">Content development, interpretive planning, spatial sequencing, fabrication, and the process from concept to opening day.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">06</span>
+        <div>
+          <div class="toc-title">Finance &amp; Operations</div>
+          <div class="toc-desc">Revenue model, earned income strategy, operating budget, staffing ratios, and the difference between a museum that can open and one that can stay open.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">07</span>
+        <div>
+          <div class="toc-title">Types of Museums</div>
+          <div class="toc-desc">Science centers, children's museums, art museums, natural history museums, history museums, zoos, aquariums — the defining characteristics of each.</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <span class="toc-num">08</span>
+        <div>
+          <div class="toc-title">Starting a Museum</div>
+          <div class="toc-desc">From idea to institution — the sequence of decisions, the common mistakes, and what a realistic timeline actually looks like.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSEUM TYPES -->
+<section class="section section-bg">
+  <div class="section-inner">
+    <div class="section-tag">Museum Types Covered</div>
+    <h2>Every kind of <em>institution.</em></h2>
+    <div class="types-grid">
+      <div class="type-cell">
+        <div class="type-icon">⊕</div>
+        <div class="type-name">Science Centers</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">◇</div>
+        <div class="type-name">Art Museums</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">⌘</div>
+        <div class="type-name">Children's Museums</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">○</div>
+        <div class="type-name">Natural History</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">△</div>
+        <div class="type-name">History Museums</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">□</div>
+        <div class="type-name">Zoos &amp; Aquariums</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">⬡</div>
+        <div class="type-name">Visitor Centers</div>
+      </div>
+      <div class="type-cell">
+        <div class="type-icon">✦</div>
+        <div class="type-name">Cultural Centers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECOND EDITION TEASER -->
+<section class="second-ed">
+  <div class="second-ed-inner">
+    <div class="sed-grid">
+      <div class="sed-left">
+        <div class="sed-tag">Second Edition · In Development</div>
+        <div class="sed-h2">The first edition told you<br>what a museum <em>is.</em><br>The second tells you<br>what it's <em>in.</em></div>
+        <div class="sed-body">
+          <p>The operating environment every museum now shares has fundamentally shifted. <strong>AI tools in interpretation and collections. Demographic changes in every American city. Federal funding structures in flux. Digital audience systems that didn't exist in 2015.</strong></p>
+          <p>Programming-driven visitation. The death of the "build it and they will come" assumption. Institutions that exist inside their four walls, and institutions that exist everywhere their audience is.</p>
+          <p>Museums 101, Second Edition is about the world your museum opens into — and how to plan honestly for it.</p>
+        </div>
+        <a href="https://museumplanning.com/museum-planning-contact.html" class="btn-red-outline">Get notified when available →</a>
+      </div>
+
+      <div>
+        <div class="ed-compare">
+          <div class="ec-header">
+            <div class="ec-h"></div>
+            <div class="ec-h ed1">First Ed. 2015</div>
+            <div class="ec-h ed2">Second Ed.</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">What a museum is</div>
+            <div class="ec-cell ed1"><span class="ec-check">✓</span></div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> Updated</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">Governance &amp; law</div>
+            <div class="ec-cell ed1"><span class="ec-check">✓</span></div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> Revised</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">AI in museum practice</div>
+            <div class="ec-cell ed1">—</div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> New</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">Digital audience systems</div>
+            <div class="ec-cell ed1">—</div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> New</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">Convergence Era planning</div>
+            <div class="ec-cell ed1">—</div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> New</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">Museum Vitality Index</div>
+            <div class="ec-cell ed1">—</div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> New</div>
+          </div>
+          <div class="ec-row">
+            <div class="ec-cell label">Radical Localism framework</div>
+            <div class="ec-cell ed1">—</div>
+            <div class="ec-cell ed2"><span class="ec-check">✓</span> New</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section" id="resources">
+  <div class="section-inner">
+    <div class="section-tag">Free Resources</div>
+    <h2>What comes<br>with the <em>book.</em></h2>
+    <div class="res-two">
+      <div class="res-group">
+        <h3>Tools &amp; <em>Templates</em></h3>
+        <ul class="res-list">
+          <li><a href="https://www.museums101.com/museum-toolbox/">Museum Toolbox</a><span class="res-arr">→</span></li>
+          <li><a href="https://www.museums101.com/museum-resources/">Museum Resources Library</a><span class="res-arr">→</span></li>
+          <li><a href="https://museumplanner.org/museums-101/toolbox/">Toolbox on Museum Planner</a><span class="res-arr">→</span></li>
+          <li><a href="https://museumplanner.org/museums-101/">Book hub on Museum Planner</a><span class="res-arr">→</span></li>
+          <li><a href="https://www.museums101.com/blog/">Blog archive</a><span class="res-arr">→</span></li>
+        </ul>
+      </div>
+      <div class="res-group">
+        <h3>Further <em>Reading</em></h3>
+        <ul class="res-list">
+          <li><a href="https://museumplanner.org/convergence-era.html">The Convergence Era</a><span class="res-arr">→</span></li>
+          <li><a href="https://museumplanner.org/radical-localism.html">Radical Localism</a><span class="res-arr">→</span></li>
+          <li><a href="https://museumplanner.org/obbba/">The Big Beautiful Bill &amp; Museums</a><span class="res-arr">→</span></li>
+          <li><a href="https://museumplanner.org/category/starting-a-museum/">Starting a Museum — 42 articles</a><span class="res-arr">→</span></li>
+          <li><a href="https://museum-experiences.com">Designing Museum Experiences</a><span class="res-arr">→</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<div class="ecosystem">
+  <div class="eco-inner">
+    <div class="eco-top">Museum Planning LLC · The Full Practice</div>
+    <div class="eco-grid">
+      <a href="https://museumplanning.com" class="eco-card">
+        <div class="eco-ct">Consulting</div>
+        <div class="eco-cn">Museum Planning LLC</div>
+        <div class="eco-cd">Feasibility through opening day. Forty museums. One methodology.</div>
+      </a>
+      <a href="https://museumplanner.org" class="eco-card">
+        <div class="eco-ct">Intellectual Home</div>
+        <div class="eco-cn">Museum Planner</div>
+        <div class="eco-cd">400+ articles. Where the thinking about museums happens in public.</div>
+      </a>
+      <a href="https://museum-experiences.com" class="eco-card">
+        <div class="eco-ct">Companion Text</div>
+        <div class="eco-cn">Designing Museum Experiences</div>
+        <div class="eco-cd">Visitor-centered design — the how-to companion to Museums 101.</div>
+      </a>
+      <a href="https://museumcourses.com" class="eco-card">
+        <div class="eco-ct">Education</div>
+        <div class="eco-cn">Museum Courses</div>
+        <div class="eco-cd">Online courses for museum practitioners and students.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Planning a museum?<br>Let's <em>talk.</em></h2>
+  <p>Forty museums. Mark Walhimer personally involved in every engagement — from feasibility through opening day.</p>
+  <a href="https://museumplanning.com/museum-planning-contact.html" class="btn-white">Start a Conversation →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Museums101.com · Museum Planning LLC · © 2026</div>
+  <div class="footer-links">
+    <a href="https://museumplanner.org">Museum Planner</a>
+    <a href="https://museumplanning.com">Consulting</a>
+    <a href="https://museum-experiences.com">Experiences</a>
+    <a href="https://museumcourses.com">Courses</a>
+    <a href="mailto:mark@museumplanning.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
