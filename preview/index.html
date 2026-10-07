@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Museums 101 — Museum Planning by Mark Walhimer</title>
+<meta name="description" content="Museums 101 by Mark Walhimer — the essential guide to museum planning, from feasibility through opening day. Templates, frameworks, the Museum Vitality Index, and a second edition now in development.">
+<meta property="og:title" content="Museums 101 — Museum Planning by Mark Walhimer">
+<meta property="og:description" content="The essential guide to museum planning. Templates, frameworks, the Museum Vitality Index. By Mark Walhimer, Museum Planning LLC.">
+<meta property="og:url" content="https://www.museums101.com/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.museums101.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #0D1117;
+  --navy-2:    #141B26;
+  --navy-card: #19212E;
+  --border:    rgba(255,255,255,0.07);
+  --copper:    #C9A84C;
+  --copper-lt: #DFC27A;
+  --copper-bg: rgba(201,168,76,0.10);
+  --rust:      #C0391B;
+  --white:     #F5F1E8;
+  --dim:       rgba(245,241,232,0.55);
+  --muted:     rgba(245,241,232,0.28);
+  --serif:     'Playfair Display', Georgia, serif;
+  --mono:      'DM Mono', monospace;
+  --sans:      'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 56px;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-logo-circle {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 11px; font-weight: 700; color: #fff;
+}
+.nav-site-name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--dim); }
+.nav-site-name strong { color: var(--copper); font-weight: 500; }
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); padding: 0 14px; height: 56px;
+  display: flex; align-items: center;
+  border-right: 0.5px solid var(--border); transition: color 0.15s, background 0.15s;
+}
+.nav-links li:first-child a { border-left: 0.5px solid var(--border); }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+.nav-links a.active { color: var(--copper); }
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: calc(100vh - 56px);
+  display: grid; grid-template-rows: 1fr auto;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 60% at 65% 35%, rgba(201,168,76,0.05) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 50% at 5% 80%,  rgba(192,57,27,0.04)  0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black, transparent);
+}
+.hero-body {
+  position: relative; z-index: 1;
+  max-width: 1080px; margin: 0 auto; width: 100%;
+  padding: 80px 40px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 28px;
+  display: flex; align-items: center; gap: 14px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 28px; height: 1px; background: var(--copper); opacity: 0.6;
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(60px, 10vw, 128px);
+  font-weight: 900; line-height: 0.9;
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+}
+.hero-h1 em { color: var(--copper); font-style: italic; }
+.hero-rule { width: 64px; height: 2px; background: var(--copper); opacity: 0.65; margin: 28px 0; }
+.hero-deck {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: clamp(18px, 2.4vw, 26px); color: var(--dim);
+  max-width: 580px; line-height: 1.5; margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--navy); background: var(--copper);
+  padding: 13px 26px; border-radius: 2px;
+  transition: background 0.18s, transform 0.15s; display: inline-block;
+}
+.btn-primary:hover { background: var(--copper-lt); transform: translateY(-1px); }
+.btn-ghost {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--dim); border: 0.5px solid rgba(255,255,255,0.2);
+  padding: 13px 26px; border-radius: 2px;
+  transition: color 0.18s, border-color 0.18s, transform 0.15s; display: inline-block;
+}
+.btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.45); transform: translateY(-1px); }
+.hero-stats {
+  position: relative; z-index: 1;
+  max-width: 1080px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 0.5px solid var(--border);
+}
+.hero-stat { padding: 24px 40px; border-right: 0.5px solid var(--border); }
+.hero-stat:last-child { border-right: none; }
+.hs-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+.hs-val { font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--copper); line-height: 1; }
+.hs-val.sm { font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--dim); line-height: 1.45; }
+
+/* ── FULL RULE ── */
+.full-rule { border: none; border-top: 0.5px solid var(--border); }
+
+/* ── ABOUT THE BOOK ── */
+.book-section {
+  max-width: 1080px; margin: 0 auto;
+  padding: 80px 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+}
+.book-cover-wrap {
+  position: relative;
+}
+.book-cover {
+  background: var(--navy-card);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  aspect-ratio: 2/3;
+  display: flex; flex-direction: column;
+  overflow: hidden; position: relative;
+}
+.book-cover-shine {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 40% 25%, rgba(201,168,76,0.07) 0%, transparent 65%);
+}
+.book-cover-body {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 28px; text-align: center; position: relative; z-index: 1;
+}
+.bc-edition {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper); border: 0.5px solid rgba(201,168,76,0.35);
+  padding: 4px 10px; border-radius: 2px; margin-bottom: 28px; display: inline-block;
+}
+.bc-title {
+  font-family: var(--serif); font-size: 54px; font-weight: 900;
+  line-height: 0.92; letter-spacing: -0.02em; color: var(--white);
+}
+.bc-num {
+  font-family: var(--serif); font-size: 54px; font-weight: 900;
+  line-height: 0.92; letter-spacing: -0.02em; color: var(--copper);
+  margin-bottom: 20px;
+}
+.bc-rule { width: 36px; height: 1px; background: var(--copper); opacity: 0.4; margin: 0 auto 18px; }
+.bc-author { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.book-cover-foot {
+  padding: 14px 20px; text-align: center;
+  background: rgba(201,168,76,0.08);
+  border-top: 0.5px solid rgba(201,168,76,0.18);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(201,168,76,0.65);
+}
+.book-badge-row {
+  display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
+}
+.book-badge {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 2px;
+  background: rgba(255,255,255,0.04); color: var(--muted); border: 0.5px solid var(--border);
+}
+.book-badge.hi { background: var(--copper-bg); color: var(--copper); border-color: rgba(201,168,76,0.25); }
+
+.book-info-eyebrow {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.book-info-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--copper); opacity: 0.55; }
+.book-info h2 {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 46px); font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 20px;
+}
+.book-info h2 em { color: var(--copper); font-style: italic; }
+.book-info p {
+  font-size: 15px; font-weight: 300; color: var(--dim); line-height: 1.85; margin-bottom: 16px;
+}
+.book-info blockquote {
+  border-left: 2px solid var(--copper); padding-left: 18px; margin: 24px 0;
+}
+.book-info blockquote p {
+  font-family: var(--serif); font-size: 17px; font-style: italic;
+  color: var(--dim); line-height: 1.6; margin-bottom: 6px;
+}
+.book-info blockquote cite {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--copper); font-style: normal;
+}
+.book-meta {
+  margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border);
+  border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+}
+.book-meta-cell { background: var(--navy-card); padding: 14px 16px; }
+.bmc-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.bmc-val { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--copper); line-height: 1; }
+.bmc-val.sm { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--dim); }
+
+/* ── 2ND EDITION BAND ── */
+.edition-band {
+  background: var(--navy-2);
+  border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
+}
+.edition-inner {
+  max-width: 1080px; margin: 0 auto;
+  padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+.edition-left {
+  padding: 56px 48px 56px 0;
+  border-right: 0.5px solid var(--border);
+}
+.edition-right {
+  padding: 56px 0 56px 48px;
+}
+.edition-eyebrow {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.edition-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--copper); opacity: 0.55; }
+.edition-left h2 {
+  font-family: var(--serif); font-size: clamp(24px, 3.5vw, 40px); font-weight: 700;
+  line-height: 1.08; letter-spacing: -0.015em; margin-bottom: 16px;
+}
+.edition-left h2 em { color: var(--copper); font-style: italic; }
+.edition-left p {
+  font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.8; margin-bottom: 12px;
+}
+.edition-topics {
+  margin-top: 20px; display: flex; flex-direction: column; gap: 0;
+  border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+}
+.edition-topic {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 16px; background: var(--navy-card);
+  border-bottom: 0.5px solid var(--border);
+}
+.edition-topic:last-child { border-bottom: none; }
+.et-num { font-family: var(--mono); font-size: 10px; color: var(--copper); opacity: 0.7; min-width: 20px; padding-top: 1px; }
+.et-text { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.5; }
+
+.edition-right h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--white); margin-bottom: 8px; line-height: 1.2;
+}
+.edition-right h3 em { color: var(--copper); font-style: italic; }
+.edition-right p {
+  font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.8; margin-bottom: 20px;
+}
+.notify-form { display: flex; flex-direction: column; gap: 10px; }
+.notify-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.notify-input {
+  background: var(--navy-card); border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 2px; padding: 10px 14px;
+  font-family: var(--sans); font-size: 14px; color: var(--white);
+  outline: none; transition: border-color 0.18s; width: 100%;
+}
+.notify-input:focus { border-color: rgba(201,168,76,0.5); }
+.notify-input::placeholder { color: var(--muted); }
+.notify-submit {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 12px 24px; background: var(--copper); color: var(--navy);
+  border: none; border-radius: 2px; cursor: pointer;
+  transition: background 0.18s; width: 100%;
+}
+.notify-submit:hover { background: var(--copper-lt); }
+.notify-note { font-family: var(--mono); font-size: 9px; color: var(--muted); line-height: 1.5; }
+
+/* ── BOOKS SHELF ── */
+.books-section {
+  max-width: 1080px; margin: 0 auto; padding: 72px 40px;
+}
+.section-eyebrow {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--copper); opacity: 0.55; }
+.books-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border); border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+  margin-top: 24px;
+}
+.book-card {
+  background: var(--navy-card); padding: 28px 24px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: background 0.18s;
+}
+.book-card:hover { background: rgba(255,255,255,0.025); }
+.bk-year { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--copper); opacity: 0.7; }
+.bk-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--white); line-height: 1.2; }
+.bk-title em { font-style: italic; }
+.bk-pub { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
+.bk-desc { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.65; flex: 1; }
+.bk-action {
+  display: inline-block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 2px; align-self: flex-start; margin-top: 6px;
+  background: var(--copper-bg); color: var(--copper); border: 0.5px solid rgba(201,168,76,0.25);
+  transition: background 0.18s;
+}
+.bk-action:hover { background: rgba(201,168,76,0.2); }
+.bk-action.ghost {
+  background: transparent; color: var(--muted);
+  border-color: rgba(255,255,255,0.1); cursor: default;
+}
+
+/* ── MVI STRIP ── */
+.mvi-strip {
+  background: var(--navy-2);
+  border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
+}
+.mvi-strip-inner {
+  max-width: 1080px; margin: 0 auto; padding: 56px 40px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center;
+}
+.mvi-strip-score { text-align: center; }
+.mvi-strip-num {
+  font-family: var(--serif); font-size: 80px; font-weight: 900;
+  color: var(--copper); line-height: 1; letter-spacing: -0.02em;
+}
+.mvi-strip-denom { font-family: var(--serif); font-size: 22px; color: var(--muted); }
+.mvi-strip-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+}
+.mvi-strip-body {}
+.mvi-strip-eyebrow {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 8px;
+}
+.mvi-strip-body h2 {
+  font-family: var(--serif); font-size: clamp(22px, 3vw, 34px); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 12px;
+}
+.mvi-strip-body h2 em { color: var(--copper); font-style: italic; }
+.mvi-strip-body p { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.75; }
+.mvi-strip-cats {
+  display: flex; flex-direction: column; gap: 8px;
+  min-width: 220px;
+}
+.mvi-cat-row {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 10px; color: var(--dim);
+}
+.mvi-cat-bar { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.mvi-cat-fill { height: 100%; background: var(--copper); border-radius: 2px; }
+.mvi-cat-score { font-family: var(--mono); font-size: 10px; color: var(--copper); min-width: 32px; text-align: right; }
+
+/* ── SITE MAP ── */
+.sitemap-section {
+  max-width: 1080px; margin: 0 auto; padding: 72px 40px;
+}
+.sitemap-grid {
+  margin-top: 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--border); border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+}
+.sitemap-card {
+  background: var(--navy-card); padding: 28px 24px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: background 0.18s;
+}
+.sitemap-card:hover { background: rgba(255,255,255,0.025); }
+.sc-num { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--copper); opacity: 0.65; }
+.sc-name { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); line-height: 1.2; }
+.sc-desc { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.6; flex: 1; }
+.sc-link {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--copper); margin-top: 4px; transition: opacity 0.15s;
+}
+.sc-link:hover { opacity: 0.7; }
+
+/* ── ABOUT MARK ── */
+.about-section {
+  background: var(--navy-2);
+  border-top: 0.5px solid var(--border);
+}
+.about-inner {
+  max-width: 1080px; margin: 0 auto; padding: 72px 40px;
+  display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: start;
+}
+.about-card {
+  background: var(--navy-card); border: 0.5px solid var(--border); border-radius: 3px; overflow: hidden;
+}
+.about-card-top {
+  padding: 28px 24px; text-align: center;
+  background: rgba(201,168,76,0.04);
+  border-bottom: 0.5px solid var(--border);
+}
+.about-avatar {
+  width: 72px; height: 72px; border-radius: 50%; background: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 22px; font-weight: 700; color: #fff;
+  margin: 0 auto 14px;
+}
+.about-name { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.about-role { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); }
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border);
+}
+.about-stat { background: var(--navy-card); padding: 14px 16px; }
+.as-num { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--copper); line-height: 1; }
+.as-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.about-contact {
+  padding: 14px 16px; grid-column: 1/-1; background: var(--navy-card);
+  border-top: 0.5px solid var(--border);
+}
+.about-contact a {
+  font-family: var(--mono); font-size: 10px; color: var(--copper);
+  display: block; margin-bottom: 4px; transition: opacity 0.15s;
+}
+.about-contact a:hover { opacity: 0.7; }
+.about-text p { font-size: 15px; font-weight: 300; color: var(--dim); line-height: 1.85; margin-bottom: 16px; }
+.about-text blockquote {
+  border-left: 2px solid var(--copper); padding-left: 18px; margin: 24px 0;
+}
+.about-text blockquote p {
+  font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--dim); line-height: 1.6; margin-bottom: 6px;
+}
+.about-text blockquote cite {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--copper); font-style: normal;
+}
+.about-offices {
+  margin-top: 20px; padding: 16px 20px;
+  background: var(--navy-card); border: 0.5px solid var(--border);
+  border-left: 2px solid var(--copper); border-radius: 2px;
+}
+.ao-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); margin-bottom: 5px; }
+.ao-val { font-size: 14px; color: var(--dim); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--border);
+  max-width: 1080px; margin: 0 auto;
+  padding: 32px 40px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.footer-brand { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--muted); }
+.footer-brand strong { color: var(--copper); font-weight: 400; }
+.footer-nav { display: flex; gap: 0; list-style: none; }
+.footer-nav a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding: 0 12px; border-right: 0.5px solid var(--border);
+  transition: color 0.15s;
+}
+.footer-nav li:first-child a { border-left: 0.5px solid var(--border); }
+.footer-nav a:hover { color: var(--copper); }
+.footer-social { display: flex; gap: 14px; }
+.footer-social a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted); transition: color 0.15s;
+}
+.footer-social a:hover { color: var(--white); }
+.footer-copy {
+  width: 100%; padding-top: 14px; border-top: 0.5px solid var(--border);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; color: rgba(255,255,255,0.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-body { padding: 56px 20px 48px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .hero-stat { padding: 20px 20px; }
+  .book-section { grid-template-columns: 1fr; padding: 56px 20px; gap: 40px; }
+  .edition-inner { grid-template-columns: 1fr; }
+  .edition-left { padding: 48px 20px 32px; border-right: none; border-bottom: 0.5px solid var(--border); }
+  .edition-right { padding: 32px 20px 48px; }
+  .books-grid { grid-template-columns: 1fr; }
+  .mvi-strip-inner { grid-template-columns: 1fr; gap: 28px; }
+  .mvi-strip-cats { min-width: unset; }
+  .sitemap-grid { grid-template-columns: 1fr 1fr; }
+  .about-inner { grid-template-columns: 1fr; padding: 56px 20px; gap: 36px; }
+  .books-section, .sitemap-section { padding: 56px 20px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+  .footer-nav { flex-wrap: wrap; }
+  .mvi-strip-inner { padding: 48px 20px; }
+}
+@media (max-width: 500px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .sitemap-grid { grid-template-columns: 1fr; }
+  .book-meta { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-circle">M</div>
+    <span class="nav-site-name"><strong>Museums 101</strong></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="https://www.museums101.com/" class="active">About</a></li>
+    <li><a href="https://www.museums101.com/blog/">Blog</a></li>
+    <li><a href="https://www.museums101.com/museum-resources/">Museum Resources</a></li>
+    <li><a href="https://www.museums101.com/museum-toolbox/">Museum Toolbox</a></li>
+    <li><a href="https://www.museums101.com/contact/">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-body">
+    <div class="hero-eyebrow">Mark Walhimer · Museum Planning LLC · Since 1999</div>
+    <h1 class="hero-h1">Museums<br><em>101</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-deck">The essential guide to museum planning — for founders, directors, board members, students, and anyone who wants to understand how museums actually work.</p>
+    <div class="hero-actions">
+      <a href="https://amzn.to/3hwobnv" target="_blank" rel="noopener" class="btn-primary">Buy on Amazon →</a>
+      <a href="https://www.museums101.com/museum-toolbox/" class="btn-ghost">Museum Toolbox</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hs-lbl">First Published</div>
+      <div class="hs-val">2015</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-lbl">Publisher</div>
+      <div class="hs-val sm">Bloomsbury<br>Publishing</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-lbl">2nd Edition</div>
+      <div class="hs-val sm">Forthcoming<br>2026</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-lbl">Author</div>
+      <div class="hs-val sm">Mark Walhimer<br>Museum Planning LLC</div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-rule">
+
+<!-- ═══ ABOUT THE BOOK ═══ -->
+<div class="book-section" id="about">
+  <div class="book-cover-wrap">
+    <div class="book-cover">
+      <div class="book-cover-shine"></div>
+      <div class="book-cover-body">
+        <div class="bc-edition">First Edition · 2015</div>
+        <div class="bc-title">Museums</div>
+        <div class="bc-num">101</div>
+        <div class="bc-rule"></div>
+        <div class="bc-author">Mark Walhimer</div>
+      </div>
+      <div class="book-cover-foot">Bloomsbury</div>
+    </div>
+    <div class="book-badge-row">
+      <div class="book-badge hi">#1 New Release · Museum Studies</div>
+      <div class="book-badge">Amazon Best Seller</div>
+      <div class="book-badge">Bloomsbury</div>
+    </div>
+  </div>
+
+  <div class="book-info">
+    <div class="book-info-eyebrow">The Book</div>
+    <h2>The Museum<br><em>Field Manual.</em></h2>
+    <p>Museums 101 is the practical handbook for museum founders, directors, board members, staff, students, and enthusiasts. It covers the full arc of museum development — from the first community assessment through opening day — written from inside the field by someone who has planned more than forty institutions.</p>
+    <p>The museum field is undergoing a dramatic shift. Inclusion, representation, digital engagement, AI-driven visitor experiences, changing funding models, and the rise of civic anchor institutions are redefining what a museum is and who it serves. Museums 101 gives you the language and framework to navigate that shift.</p>
+    <p>The book covers all museum types: natural history museums, art museums, zoos, aquariums, science centers, children's museums, history museums, and visitors centers.</p>
+
+    <blockquote>
+      <p>Writing the book clarified my thinking and helped broadcast it to people. I often send copies to new clients — it helps them understand me and how I think.</p>
+      <cite>— Mark Walhimer</cite>
+    </blockquote>
+
+    <div class="book-meta">
+      <div class="book-meta-cell">
+        <div class="bmc-lbl">Published</div>
+        <div class="bmc-val">2015</div>
+      </div>
+      <div class="book-meta-cell">
+        <div class="bmc-lbl">Publisher</div>
+        <div class="bmc-val sm">Bloomsbury</div>
+      </div>
+      <div class="book-meta-cell">
+        <div class="bmc-lbl">2nd Edition</div>
+        <div class="bmc-val sm">Forthcoming</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="full-rule">
+
+<!-- ═══ 2ND EDITION ═══ -->
+<div class="edition-band" id="second-edition">
+  <div class="edition-inner">
+    <div class="edition-left">
+      <div class="edition-eyebrow">Now in Development</div>
+      <h2>Museums 101<br><em>Second Edition</em></h2>
+      <p>The museum world has changed fundamentally since 2015. The second edition incorporates a decade of new practice, the Museum Vitality Index framework, the Convergence Era thesis on AI and cultural systems, and updated tools across all four planning phases.</p>
+      <p>New and expanded topics include:</p>
+      <div class="edition-topics">
+        <div class="edition-topic">
+          <div class="et-num">01</div>
+          <div class="et-text">AI, agentic systems, and the transformation of the visitor experience</div>
+        </div>
+        <div class="edition-topic">
+          <div class="et-num">02</div>
+          <div class="et-text">The Museum Vitality Index — size-normalized benchmarking for every institution</div>
+        </div>
+        <div class="edition-topic">
+          <div class="et-num">03</div>
+          <div class="et-text">The civic anchor model — converting historic buildings into community museums</div>
+        </div>
+        <div class="edition-topic">
+          <div class="et-num">04</div>
+          <div class="et-text">Digital presence strategy — Instagram reach, review management, and earned media</div>
+        </div>
+        <div class="edition-topic">
+          <div class="et-num">05</div>
+          <div class="et-text">Inclusion, representation, and decolonization in collections and programming</div>
+        </div>
+        <div class="edition-topic">
+          <div class="et-num">06</div>
+          <div class="et-text">Post-pandemic financial realities — endowment strategy, revenue mix, sustainability</div>
+        </div>
+      </div>
+    </div>
+    <div class="edition-right">
+      <h3>Get Notified When<br><em>It Ships.</em></h3>
+      <p>Leave your email and you'll be the first to know when the second edition is available — along with early access to new chapters, frameworks, and the full Museum Toolbox.</p>
+      <div class="notify-form">
+        <div>
+          <div class="notify-label">Your Name</div>
+          <input type="text" class="notify-input" placeholder="First and last name">
+        </div>
+        <div>
+          <div class="notify-label">Email Address</div>
+          <input type="email" class="notify-input" placeholder="you@yourmuseum.org">
+        </div>
+        <div>
+          <div class="notify-label">Institution / Role (optional)</div>
+          <input type="text" class="notify-input" placeholder="Director, Board Member, Student...">
+        </div>
+        <button class="notify-submit" onclick="window.location.href='mailto:mark@museumplanning.com?subject=Museums 101 Second Edition Notification'">Notify Me →</button>
+        <div class="notify-note">No spam. Updates about the 2nd Edition and the Museum Toolbox only. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BOOKS SHELF ═══ -->
+<div class="books-section" id="books">
+  <div class="section-eyebrow">Published Works</div>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="bk-year">2015 · First Edition</div>
+      <div class="bk-title"><em>Museums 101</em></div>
+      <div class="bk-pub">Bloomsbury</div>
+      <div class="bk-desc">The essential planning handbook for museum founders, directors, board members, and students. Covers the full arc from community assessment through opening day. #1 New Release in Museum Studies on Amazon.</div>
+      <a href="https://amzn.to/3hwobnv" target="_blank" rel="noopener" class="bk-action">Buy on Amazon →</a>
+    </div>
+    <div class="book-card">
+      <div class="bk-year">2021</div>
+      <div class="bk-title"><em>Designing Museum Experiences</em></div>
+      <div class="bk-pub">Bloomsbury</div>
+      <div class="bk-desc">A deep dive into the visitor experience — how museums design meaning, sequence space, and create emotional engagement. Covers content development, interpretive frameworks, and the full exhibition design process from concept through fabrication.</div>
+      <a href="https://www.museum-experiences.com/" target="_blank" rel="noopener" class="bk-action">Learn More →</a>
+    </div>
+    <div class="book-card">
+      <div class="bk-year">Forthcoming</div>
+      <div class="bk-title"><em>Museums 101</em> Second Edition</div>
+      <div class="bk-pub">Bloomsbury · In Development 2026</div>
+      <div class="bk-desc">The fully revised second edition incorporating a decade of new practice, the Museum Vitality Index, the Convergence Era thesis on AI and cultural systems, and the civic anchor model for community museums.</div>
+      <div class="bk-action ghost">Coming Soon</div>
+    </div>
+  </div>
+</div>
+
+<hr class="full-rule">
+
+<!-- ═══ MVI STRIP ═══ -->
+<div class="mvi-strip" id="mvi">
+  <div class="mvi-strip-inner">
+    <div class="mvi-strip-score">
+      <div style="display:flex;align-items:baseline;gap:4px;">
+        <div class="mvi-strip-num">79</div>
+        <div class="mvi-strip-denom">/100</div>
+      </div>
+      <div class="mvi-strip-label">Connecticut River Museum<br>FY2024 · B+ Strong</div>
+    </div>
+    <div class="mvi-strip-body">
+      <div class="mvi-strip-eyebrow">New · Museum Vitality Index</div>
+      <h2>A Better Way to<br><em>Measure Institutions.</em></h2>
+      <p>The MVI is a proprietary 0–100 scoring framework that benchmarks museums of every size using size-normalized metrics drawn from IRS Form 990 data, visitor reviews, digital analytics, and community context. A $500K museum can outrank a $25M institution — if it's running well. Every metric is a ratio, never a raw number.</p>
+      <a href="mailto:mark@museumplanning.com?subject=MVI Assessment Request" class="btn-primary" style="margin-top:20px;display:inline-block;">Request an MVI Assessment →</a>
+    </div>
+    <div class="mvi-strip-cats">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">5 Categories · 20 pts each</div>
+      <div class="mvi-cat-row">
+        <span style="min-width:130px;font-size:10px;">Visitor Experience</span>
+        <div class="mvi-cat-bar"><div class="mvi-cat-fill" style="width:80%"></div></div>
+        <span class="mvi-cat-score">16/20</span>
+      </div>
+      <div class="mvi-cat-row">
+        <span style="min-width:130px;font-size:10px;">Digital Presence</span>
+        <div class="mvi-cat-bar"><div class="mvi-cat-fill" style="width:85%"></div></div>
+        <span class="mvi-cat-score">17/20</span>
+      </div>
+      <div class="mvi-cat-row">
+        <span style="min-width:130px;font-size:10px;">Financial Health</span>
+        <div class="mvi-cat-bar"><div class="mvi-cat-fill" style="width:75%"></div></div>
+        <span class="mvi-cat-score">15/20</span>
+      </div>
+      <div class="mvi-cat-row">
+        <span style="min-width:130px;font-size:10px;">Community Impact</span>
+        <div class="mvi-cat-bar"><div class="mvi-cat-fill" style="width:80%"></div></div>
+        <span class="mvi-cat-score">16/20</span>
+      </div>
+      <div class="mvi-cat-row">
+        <span style="min-width:130px;font-size:10px;">Institutional Strength</span>
+        <div class="mvi-cat-bar"><div class="mvi-cat-fill" style="width:75%"></div></div>
+        <span class="mvi-cat-score">15/20</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SITE MAP ═══ -->
+<div class="sitemap-section" id="site">
+  <div class="section-eyebrow">What's on This Site</div>
+  <div class="sitemap-grid">
+    <a href="https://www.museums101.com/museum-toolbox/" class="sitemap-card">
+      <div class="sc-num">01</div>
+      <div class="sc-name">Museum Toolbox</div>
+      <div class="sc-desc">20+ free planning templates, worksheets, checklists, and frameworks organized across all four phases of museum development. Downloadable .docx and .xlsx files.</div>
+      <div class="sc-link">museum-toolbox/ →</div>
+    </a>
+    <a href="https://www.museums101.com/museum-resources/" class="sitemap-card">
+      <div class="sc-num">02</div>
+      <div class="sc-name">Museum Resources</div>
+      <div class="sc-desc">Updated links to AAM, ICOM, IMLS, AZA, AASLH, ProPublica Nonprofit Explorer, and other essential external resources for museum professionals — all verified and current.</div>
+      <div class="sc-link">museum-resources/ →</div>
+    </a>
+    <a href="https://www.museums101.com/museum-glossary/" class="sitemap-card">
+      <div class="sc-num">03</div>
+      <div class="sc-name">Museum Glossary</div>
+      <div class="sc-desc">Definitions of essential museum terms — from 990 analysis to visitor experience metrics, accreditation standards, exhibition design vocabulary, and collections management terminology.</div>
+      <div class="sc-link">museum-glossary/ →</div>
+    </a>
+    <a href="https://www.museums101.com/blog/" class="sitemap-card">
+      <div class="sc-num">04</div>
+      <div class="sc-name">Blog</div>
+      <div class="sc-desc">Essays on museum planning, visitor experience design, the Museum Vitality Index, and the future of cultural institutions in the age of AI and agentic systems.</div>
+      <div class="sc-link">blog/ →</div>
+    </a>
+  </div>
+</div>
+
+<hr class="full-rule">
+
+<!-- ═══ ABOUT MARK ═══ -->
+<div class="about-section" id="mark">
+  <div class="about-inner">
+    <div>
+      <div class="about-card">
+        <div class="about-card-top">
+          <div class="about-avatar">MW</div>
+          <div class="about-name">Mark Walhimer</div>
+          <div class="about-role">Managing Partner · Museum Planning LLC</div>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="as-num">40+</div>
+            <div class="as-lbl">Museums Completed</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">25+</div>
+            <div class="as-lbl">Years in Practice</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">2</div>
+            <div class="as-lbl">Bloomsbury Books</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">1992</div>
+            <div class="as-lbl">In Museums Since</div>
+          </div>
+          <div class="about-contact" style="grid-column:1/-1">
+            <a href="mailto:mark@museumplanning.com">mark@museumplanning.com</a>
+            <a href="tel:4157945252">415-794-5252</a>
+            <a href="https://museumplanning.com" target="_blank">museumplanning.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow">About the Author</div>
+      <p>Mark Walhimer is the Managing Partner of Museum Planning LLC and the author of <em>Museums 101</em> (2015) and <em>Designing Museum Experiences</em> (2021), both published by Bloomsbury. He has worked with museums across the United States and internationally on planning, design, and institutional strategy since 1992.</p>
+      <p>Museum Planning LLC specializes in the full arc of museum development — feasibility through opening day. Community assessment, strategic planning, business planning and pro forma, master planning, exhibition design, capital campaign strategy, operational planning, and post-opening evaluation. More than forty museums across more than 25 years in practice — science centers, art museums, natural history museums, children's museums, history museums, and cultural centers — in the United States, Mexico, and internationally.</p>
+      <p>Before founding Museum Planning LLC, Mark worked inside institutions at the Children's Museum of Indianapolis, Liberty Science Center, Discovery Science Center, and the Children's Museum of Manhattan. He also served as Chief Operating Officer at a museum fabrication studio. He holds an M.S. in Industrial Design and Exhibition Design from Pratt Institute and a B.A. in Studio Art from Skidmore College.</p>
+
+      <blockquote>
+        <p>The plans I produce are designed to be built, not filed. I have been on the other side of the table when a consultant delivers a master plan. I know what happens to that document when the meeting ends.</p>
+        <cite>— Mark Walhimer, Managing Partner</cite>
+      </blockquote>
+
+      <div class="about-offices">
+        <div class="ao-lbl">Offices</div>
+        <div class="ao-val">New York · Mexico City · Worldwide</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">Museums <strong>101</strong> · © 2026 Museum Planning, LLC</div>
+  <ul class="footer-nav">
+    <li><a href="https://www.museums101.com/">About</a></li>
+    <li><a href="https://www.museums101.com/blog/">Blog</a></li>
+    <li><a href="https://www.museums101.com/museum-resources/">Resources</a></li>
+    <li><a href="https://www.museums101.com/museum-toolbox/">Toolbox</a></li>
+    <li><a href="https://www.museums101.com/museum-glossary/">Glossary</a></li>
+    <li><a href="https://www.museums101.com/contact/">Contact</a></li>
+  </ul>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/museums101" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://twitter.com/museums101" target="_blank" rel="noopener">X</a>
+    <a href="https://www.linkedin.com/in/walhimer" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://museumplanning.medium.com" target="_blank" rel="noopener">Medium</a>
+    <a href="https://www.pinterest.com/museumplanning/" target="_blank" rel="noopener">Pinterest</a>
+  </div>
+  <div class="footer-copy">© 2026 Museum Planning, LLC · All Rights Reserved · mark@museumplanning.com · 415-794-5252 · New York · Mexico City · museumplanning.com</div>
+</footer>
+
+</body>
+</html>
